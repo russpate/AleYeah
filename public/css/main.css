@@ -7,8 +7,11 @@ body {
   width: 80%;
   margin-left: 10%; }
 
-.section {
+section {
   display: none; }
+
+.active {
+  display: inline-block; }
 
 h1 {
   text-align: center;
