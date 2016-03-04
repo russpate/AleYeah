@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     static ArrayList<Beer> beers = new ArrayList<>();
-
+//test
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
         stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR)");
