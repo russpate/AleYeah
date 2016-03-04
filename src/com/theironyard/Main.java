@@ -116,7 +116,7 @@ public class Main {
         Spark.staticFileLocation("public");
         Spark.init();
         Spark.get(
-                "/",
+                "/get-beers",
                 ((request, response) -> {
 
                     Session session = request.session();
@@ -138,16 +138,14 @@ public class Main {
                         insertUser(conn, name, password);
                         Session session = request.session();
                         session.attribute("userName", name);
-                        response.redirect("/");
+
                     }
                     else if (user.password.equals(password)) {
                         Session session = request.session();
                         session.attribute("userName", name);
-                        response.redirect("/");
+
                     }
-                    else {
-                        response.redirect("/");
-                    }
+
                     return "";
                 })
         );
@@ -156,7 +154,7 @@ public class Main {
                 ((request, response) -> {
                     Session session = request.session();
                     session.invalidate();
-                    response.redirect("/");
+
                     return "";
                 })
         );
@@ -176,7 +174,7 @@ public class Main {
 
                     insertEntry(conn, user.id, beerName, beerType, alcoholContent, isGood, comment);
 
-                    response.redirect("/");
+
 
                     return "";
                 })
@@ -202,7 +200,7 @@ public class Main {
 
                     deleteEntry(conn, beerIdNum);
 
-                    response.redirect("/");
+
                     return "";
                 })
         );
@@ -227,7 +225,7 @@ public class Main {
 
                     updateEntry(conn, beerName, beerType, alcoholContent, isGood, comment, id);
 
-                    response.redirect("/");
+
                     return "";
                 })
         );
