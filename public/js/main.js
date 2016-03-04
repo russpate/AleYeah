@@ -13,7 +13,7 @@ var aleYeah = {
 
   events: function () {
     $('.submitLogin').on('click', function(){
-    
+      
     });
   },
 
