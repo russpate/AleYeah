@@ -1,13 +1,11 @@
 package com.theironyard;
 
 import jodd.json.JsonSerializer;
-import spark.ModelAndView;
 import spark.Session;
 import spark.Spark;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main {
     static ArrayList<Beer> beers = new ArrayList<>();
