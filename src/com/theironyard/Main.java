@@ -214,7 +214,7 @@ public class Main {
                         throw new Exception("Not logged in");
                     }
                     int id = Integer.valueOf(request.queryParams("id"));
-                    Beer editBeer = selectEntry(conn, id);
+                    //Beer editBeer = selectEntry(conn, id);
 
                     String beerName = request.queryParams("editBeerName");
                     String beerType = request.queryParams("editBeerType");
@@ -222,13 +222,51 @@ public class Main {
                     boolean isGood = Boolean.valueOf(request.queryParams("editIsGood"));
                     String comment = request.queryParams("editComment");
 
-
                     updateEntry(conn, beerName, beerType, alcoholContent, isGood, comment, id);
-
 
                     return "";
                 })
         );
+        Spark.get(
+                "/search-beer",
+                ((request, response) -> {
+
+
+                    ArrayList<Beer> searchBeers = new ArrayList<>();
+                    String searchName = request.queryParams("beerSearch");
+                    String searchType = request.queryParams("typeSearch");
+
+                    if ((searchName != null && !searchName.isEmpty()) || (searchType!=null && !searchType.isEmpty())) {
+                        ArrayList<Beer> allBeer = selectEntries(conn);
+                        for (Beer beer: allBeer) {
+                            if (beer.beerName.toLowerCase().contains(searchName.toLowerCase()) && beer.beerType.toLowerCase().contains(searchType.toLowerCase())){
+                                searchBeers.add(beer);
+                            }
+                        }
+                    }
+
+                    else if (searchName != null && !searchName.isEmpty()) {
+                        ArrayList<Beer> allBeer = selectEntries(conn);
+                        for (Beer beer: allBeer) {
+                            if (beer.beerName.toLowerCase().contains(searchName.toLowerCase())){
+                                searchBeers.add(beer);
+                            }
+                        }
+                    }
+
+                    else if (searchType != null && !searchType.isEmpty()) {
+                        ArrayList<Beer> allBeer = selectEntries(conn);
+                        for (Beer beer: allBeer) {
+                            if (beer.beerType.toLowerCase().contains(searchType.toLowerCase())){
+                                searchBeers.add(beer);
+                            }
+                        }
+                    }
+                    JsonSerializer serializer = new JsonSerializer();
+                    return serializer.serialize(searchBeers);
+            })
+        );
+
 
         }
     }
