@@ -86,6 +86,24 @@ public class Main {
         return beers;
     }
 
+    public static void deleteEntry(Connection conn, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM beers WHERE id =?");
+        stmt.setInt(1, id);
+        stmt.execute();
+    }
+
+    public static void updateEntry(Connection conn, String beerName, String beerType, int alcoholContent, boolean isGood, String comment, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("UPDATE messages SET beer_name = ?, beer_type = ?," +
+                "alcohol_content= ?, is_good= ?, comment = ? WHERE id = ?");
+        stmt.setString(1, beerName);
+        stmt.setString(2, beerType);
+        stmt.setInt(3, alcoholContent);
+        stmt.setBoolean(4, isGood);
+        stmt.setString(5, comment);
+        stmt.setInt(6, id);
+        stmt.execute();
+    }
+
     public static void main(String[] args) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
         createTables(conn);
@@ -98,7 +116,7 @@ public class Main {
         Spark.staticFileLocation("public");
         Spark.init();
         Spark.get(
-                "/get-beers",
+                "/",
                 ((request, response) -> {
 
                     Session session = request.session();
@@ -109,12 +127,111 @@ public class Main {
                     return serializer.serialize(beers);
                 })
             );
-//        Spark.post(
-//                "/login",
-//                ((request, response) -> {
-//
-//                })
-//        );
+        Spark.post(
+                "/login",
+                ((request, response) -> {
+                    String name = request.queryParams("loginName");
+                    String password = request.queryParams("userPassword");
+
+                    User user = selectUser(conn, name);
+                    if (user == null) {
+                        insertUser(conn, name, password);
+                        Session session = request.session();
+                        session.attribute("userName", name);
+                        response.redirect("/");
+                    }
+                    else if (user.password.equals(password)) {
+                        Session session = request.session();
+                        session.attribute("userName", name);
+                        response.redirect("/");
+                    }
+                    else {
+                        response.redirect("/");
+                    }
+                    return "";
+                })
+        );
+        Spark.post(
+                "/logout",
+                ((request, response) -> {
+                    Session session = request.session();
+                    session.invalidate();
+                    response.redirect("/");
+                    return "";
+                })
+        );
+        Spark.post(
+                "/create-beer",
+                ((request, response) -> {
+                    Session session = request.session();
+                    String userName = session.attribute("userName");
+
+
+                    User user = selectUser(conn, userName);
+                    String beerName = request.queryParams("beers.beer_name");
+                    String beerType = request.queryParams("beers.beer_type");
+                    int alcoholContent = Integer.valueOf(request.queryParams("beers.alcohol_content"));
+                    boolean isGood = Boolean.valueOf(request.queryParams("beers.is_good"));
+                    String comment = request.queryParams("beers.comment");
+
+                    insertEntry(conn, user.id, beerName, beerType, alcoholContent, isGood, comment);
+
+                    response.redirect("/");
+
+                    return "";
+                })
+        );
+        Spark.post(
+                "/delete-beer",
+                ((request, response) -> {
+                    Session session = request.session();
+                    String userName = session.attribute("userName");
+
+                    if (userName == null) {
+                        throw new Exception("Not logged in");
+                    }
+
+                    String beerId = request.queryParams("deleteId");
+                    if (beerId == null) {
+                        throw new Exception("didn't get nec. params");
+                    }
+                    int beerIdNum = Integer.valueOf(beerId);
+                    for (int i = 0; i < beers.size(); i ++){
+                        beers.get(i).id = i;
+                    }
+
+                    deleteEntry(conn, beerIdNum);
+
+                    response.redirect("/");
+                    return "";
+                })
+        );
+
+        Spark.post(
+                "/edit-beer",
+                ((request, response) -> {
+                    Session session = request.session();
+                    String userName = session.attribute("userName");
+                    if (userName == null) {
+                        throw new Exception("Not logged in");
+                    }
+                    int id = Integer.valueOf(request.queryParams("id"));
+                    Beer editBeer = selectEntry(conn, id);
+
+                    String beerName = request.queryParams("editBeerName");
+                    String beerType = request.queryParams("editBeerType");
+                    int alcoholContent = Integer.valueOf(request.queryParams("editAlcoholContent"));
+                    boolean isGood = Boolean.valueOf(request.queryParams("editIsGood"));
+                    String comment = request.queryParams("editComment");
+
+
+                    updateEntry(conn, beerName, beerType, alcoholContent, isGood, comment, id);
+
+                    response.redirect("/");
+                    return "";
+                })
+        );
+
         }
     }
 
