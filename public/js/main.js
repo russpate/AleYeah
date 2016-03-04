@@ -12,7 +12,9 @@ var aleYeah = {
   },
 
   events: function () {
-
+    $('.submitLogin').on('click', function(){
+    
+    });
   },
 
   styling: function () {
@@ -35,10 +37,10 @@ var aleYeah = {
   },
 
   addBeertoDom: function(){
-    $('.lecturers').html("");
-   var tmpl = _.template(templates.reviews);
+    $('.dashboard').html("");
+   var tmpl = _.template(templates.dashboard);
    lecturers.forEach(function(beer) {
-     $('.lecturers').append(tmpl(beer));
+     $('.dashboard').append(tmpl(beer));
    });
   },
 
