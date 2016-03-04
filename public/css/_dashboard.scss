@@ -3,38 +3,46 @@ nav{
 }
 
 h1{
+  text-align: center;
+  font-size: 3rem;
+}
 
-
+.beerBox{
+  border:grey 2px solid;
+  width: 80%;
+  margin-left: 29%;
 }
 
 
-.col1{
-  width:48%;
+.col1 , .col2{
+  width:45%;
   display: inline-block;
 
 }
 
-.col2{
-  width:48%;
-  display:inline-block;
-}
 
 h3{
+  margin-top: 15%;
+  margin-left: 30%;
   text-align: center;
+  font-size: 1.75rem;
 
 }
 
 .beerWords h6{
     display: inline-block;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.25rem;
 }
-h6{
-
-
+.beerWords h6:first-child{
+  margin-left: 45%;
 }
+
 p{
 
 }
 img{
-  width: 40%;
+  width: 80%;
   margin-left: 29%;
 }
