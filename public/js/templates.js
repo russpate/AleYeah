@@ -1,5 +1,5 @@
 var templates = {};
 
-templates.reviews = [
+templates.dashboard = [
 
 ].join("");
