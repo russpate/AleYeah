@@ -136,42 +136,42 @@ public class Main {
 
                     User user = selectUser(conn, name);
                     if (user == null) {
-                        return "Username not valid, you need to create a username";
-//                        insertUser(conn, name, password);
-//                        Session session = request.session();
-//                        session.attribute("userName", name);
-
-                    }
-                    else if (user.password.equals(password)) {
-                        Session session = request.session();
-                        session.attribute("userName", name);
-
-                    }
-
-                    return "";
-                })
-        );
-        Spark.post(
-                "/create-user",
-                ((request, response) -> {
-                    String name = request.queryParams("loginName");
-                    String password = request.queryParams("userPassword");
-
-                    User user = selectUser(conn, name);
-                    if (user == null) {
+//                        return "Username not valid, you need to create a username";
                         insertUser(conn, name, password);
                         Session session = request.session();
                         session.attribute("userName", name);
 
-                    }
-                    else {
-                        return "User already exists";
+//                    }
+//                    else if (user.password.equals(password)) {
+//                        Session session = request.session();
+//                        session.attribute("userName", name);
 
                     }
 
                     return "";
                 })
         );
+//        Spark.post(
+//                "/create-user",
+//                ((request, response) -> {
+//                    String name = request.queryParams("loginName");
+//                    String password = request.queryParams("userPassword");
+//
+//                    User user = selectUser(conn, name);
+//                    if (user == null) {
+//                        insertUser(conn, name, password);
+//                        Session session = request.session();
+//                        session.attribute("userName", name);
+//
+//                    }
+//                    else {
+//                        return "User already exists";
+//
+//                    }
+//
+//                    return "";
+//                })
+//        );
 
         Spark.post(
                 "/logout",
