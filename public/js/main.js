@@ -12,8 +12,29 @@ var aleYeah = {
   },
 
   events: function () {
-    $('.submitLogin').on('click', function(){
-      
+    $('.submitLogin').on('click', function(event){
+      event.preventDefault();
+      console.log("click");
+      $('.loginScreen').removeClass('active');
+      $('.dashboardScreen').addClass('active');
+    });
+    $('.dashboardScreen').on('click', 'button', function(event){
+      event.preventDefault();
+      console.log("click");
+      $('.dashboardScreen').removeClass('active');
+      $('.reviewScreen').addClass('active');
+    });
+    $('.reviewScreen').on('click', 'button', function(event){
+      event.preventDefault();
+      console.log("click");
+      $('.reviewScreen').removeClass('active');
+      $('.confirmationScreen').addClass('active');
+    });
+    $('.confirmationScreen').on('click', 'button', function(event){
+      event.preventDefault();
+      console.log("click");
+      $('.confirmationScreen').removeClass('active');
+      $('.dashboardScreen').addClass('active');
     });
   },
 
