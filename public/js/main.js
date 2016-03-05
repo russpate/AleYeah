@@ -16,28 +16,39 @@ var aleYeah = {
   events: function () {
     $('.submitLogin').on('click', function(event){
       event.preventDefault();
-      console.log("click");
+      console.log("you clicked login");
       $('.loginScreen').removeClass('active');
       $('.dashboardScreen').addClass('active');
     });
     $('.dashboardScreen').on('click', 'button', function(event){
       event.preventDefault();
-      console.log("click");
+      console.log("you clicked create a new review");
       $('.dashboardScreen').removeClass('active');
       $('.reviewScreen').addClass('active');
     });
     $('.reviewScreen').on('click', '.submitReview', function(event){
       event.preventDefault();
-      console.log("click");
+      console.log("you clicked submit a new review");
       $('.reviewScreen').removeClass('active');
       $('.confirmationScreen').addClass('active');
+      var rating = aleYeah.getBeerInfo();
+      console.log(rating);
+
+      aleYeah.createBeerReview(rating);
     });
     $('.confirmationScreen').on('click', 'button', function(event){
       event.preventDefault();
-      console.log("click");
+      console.log("you clicked back to dashboard");
       $('.confirmationScreen').removeClass('active');
       $('.dashboardScreen').addClass('active');
     });
+  //   $('.reviewScreen').on('click','input[type="submit"]',function(event) {
+  //    event.preventDefault();
+  //    var rating = aleYeah.getBeerInfo();
+  //    console.log(rating);
+  //
+  //    aleYeah.createBeerReview(rating);
+  //  });
   },
 
   styling: function () {
@@ -92,9 +103,5 @@ var aleYeah = {
    lecturers.forEach(function(beer) {
      $('.dashboard').append(tmpl(beer));
    });
-  },
-
-  addBeerReviewtoDom: function(){
-
-  },
-};
+  }
+}; // end of aleyeah array
