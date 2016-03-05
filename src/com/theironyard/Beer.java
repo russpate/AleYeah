@@ -8,7 +8,7 @@ public class Beer {
     String author;
     String beerName;
     String beerType;
-    int alcoholContent;
+    String alcoholContent;
     boolean is_Good;
     String comment;
 //    String image;
@@ -16,7 +16,7 @@ public class Beer {
     boolean isAuthor;
 
 
-    public Beer(int id,  String author, String beerName, String beerType, int alcoholContent, boolean is_Good, String comment) { //, String image
+    public Beer(int id,  String author, String beerName, String beerType, String alcoholContent, boolean is_Good, String comment) { //, String image
         this.id = id;
         this.author = author;
         this.beerName = beerName;
@@ -60,11 +60,11 @@ public class Beer {
         this.beerType = beerType;
     }
 
-    public int getAlcoholContent() {
+    public String getAlcoholContent() {
         return alcoholContent;
     }
 
-    public void setAlcoholContent(int alcoholContent) {
+    public void setAlcoholContent(String alcoholContent) {
         this.alcoholContent = alcoholContent;
     }
 

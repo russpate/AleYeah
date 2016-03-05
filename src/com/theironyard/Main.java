@@ -14,7 +14,7 @@ public class Main {
         Statement stmt = conn.createStatement();
         stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR)");
 
-        stmt.execute("CREATE TABLE IF NOT EXISTS beers (id IDENTITY, user_id INT, beer_name VARCHAR, beer_type VARCHAR, alcohol_content INT, is_good BOOLEAN, comment VARCHAR)"); //took out , image VARCHAR
+        stmt.execute("CREATE TABLE IF NOT EXISTS beers (id IDENTITY, user_id INT, beer_name VARCHAR, beer_type VARCHAR, alcohol_content VARCHAR, is_good BOOLEAN, comment VARCHAR)"); //took out , image VARCHAR
     }
 
     public static void insertUser(Connection conn, String name, String password) throws SQLException {
@@ -36,12 +36,12 @@ public class Main {
         return null;
     }
 
-    public static void insertEntry(Connection conn, int userId, String beerName, String beerType, int alcoholContent, boolean isGood, String comment) throws SQLException { //took out , String image
+    public static void insertEntry(Connection conn, int userId, String beerName, String beerType, String alcoholContent, boolean isGood, String comment) throws SQLException { //took out , String image
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO beers VALUES (NULL, ?, ?, ?, ?, ?, ?)"); //took out one ? question mark
         stmt.setInt (1, userId);
         stmt.setString(2, beerName);
         stmt.setString(3, beerType);
-        stmt.setInt(4, alcoholContent);
+        stmt.setString(4, alcoholContent);
         stmt.setBoolean(5, isGood);
         stmt.setString(6, comment);
 //        stmt.setString(7, image);
@@ -56,7 +56,7 @@ public class Main {
             String name = results.getString("users.name");
             String beerName = results.getString("beers.beer_name");
             String beerType = results.getString("beers.beer_type");
-            int alcoholContent = Integer.valueOf(results.getString("beers.alcohol_content"));
+            String alcoholContent = results.getString("beers.alcohol_content");
             boolean isGood = results.getBoolean("beers.is_good");
             String comment = results.getString("beers.comment");
 //            String image = results.getString("beers.image");
@@ -75,7 +75,7 @@ public class Main {
             String author = results.getString("users.name");
             String beerName = results.getString("beers.beer_name");
             String beerType = results.getString("beers.beer_type");
-            int alcoholContent = results.getInt("beers.alcohol_content");
+            String alcoholContent =results.getString("beers.alcohol_content");
             boolean isGood = results.getBoolean("beers.is_good");
             String comment = results.getString("beers.comment");
 //            String image = results.getString("beers.image");
@@ -92,12 +92,12 @@ public class Main {
         stmt.execute();
     }
 
-    public static void updateEntry(Connection conn, String beerName, String beerType, int alcoholContent, boolean isGood, String comment, int id) throws SQLException { //, String image
+    public static void updateEntry(Connection conn, String beerName, String beerType, String alcoholContent, boolean isGood, String comment, int id) throws SQLException { //, String image
         PreparedStatement stmt = conn.prepareStatement("UPDATE messages SET beer_name = ?, beer_type = ?," +
                 "alcohol_content= ?, is_good= ?, comment = ? WHERE id = ?"); //, image = ?
         stmt.setString(1, beerName);
         stmt.setString(2, beerType);
-        stmt.setInt(3, alcoholContent);
+        stmt.setString(3, alcoholContent);
         stmt.setBoolean(4, isGood);
         stmt.setString(5, comment);
 //        stmt.setString(6, image);
@@ -111,7 +111,7 @@ public class Main {
 
         if (selectEntries(conn).size() == 0) {
             insertUser(conn, "Drew", "123");
-            insertEntry(conn, 1, "Amstel", "Pilsner", 6, true, "its a great beer"); //, "https://goo.gl/l2bdpa"
+            insertEntry(conn, 1, "Amstel", "Pilsner", "6", true, "its a great beer"); //, "https://goo.gl/l2bdpa"
         }
 
         Spark.externalStaticFileLocation("public");
@@ -192,7 +192,7 @@ public class Main {
                     User user = selectUser(conn, userName);
                     String beerName = request.queryParams("beers.beer_name");
                     String beerType = request.queryParams("beers.beer_type");
-                    int alcoholContent = Integer.valueOf(request.queryParams("beers.alcohol_content"));
+                    String alcoholContent = request.queryParams("beers.alcohol_content");
                     boolean isGood = Boolean.valueOf(request.queryParams("beers.is_good"));
                     String comment = request.queryParams("beers.comment");
 //                    String image = request.queryParams("beers.image");
@@ -243,7 +243,7 @@ public class Main {
 
                     String beerName = request.queryParams("editBeerName");
                     String beerType = request.queryParams("editBeerType");
-                    int alcoholContent = Integer.valueOf(request.queryParams("editAlcoholContent"));
+                    String alcoholContent = request.queryParams("editAlcoholContent");
                     boolean isGood = Boolean.valueOf(request.queryParams("editIsGood"));
                     String comment = request.queryParams("editComment");
 //                    String image = request.queryParams("editImage");
