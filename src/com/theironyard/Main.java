@@ -111,10 +111,10 @@ public class Main {
 
         if (selectEntries(conn).size() == 0) {
             insertUser(conn, "Drew", "123");
-            insertEntry(conn, 1, "Amstel", "Pilsner", 6, true, "its a great beer", "https://goo.gl/VawtLG");
+            insertEntry(conn, 1, "Amstel", "Pilsner", 6, true, "its a great beer", "https://goo.gl/l2bdpa");
         }
 
-        Spark.staticFileLocation("public");
+        Spark.externalStaticFileLocation("public");
         Spark.init();
         Spark.get(
                 "/get-beers",
@@ -136,9 +136,10 @@ public class Main {
 
                     User user = selectUser(conn, name);
                     if (user == null) {
-                        insertUser(conn, name, password);
-                        Session session = request.session();
-                        session.attribute("userName", name);
+                        return "Username not valid, you need to create a username";
+//                        insertUser(conn, name, password);
+//                        Session session = request.session();
+//                        session.attribute("userName", name);
 
                     }
                     else if (user.password.equals(password)) {
@@ -150,6 +151,28 @@ public class Main {
                     return "";
                 })
         );
+        Spark.post(
+                "/create-user",
+                ((request, response) -> {
+                    String name = request.queryParams("loginName");
+                    String password = request.queryParams("userPassword");
+
+                    User user = selectUser(conn, name);
+                    if (user == null) {
+                        insertUser(conn, name, password);
+                        Session session = request.session();
+                        session.attribute("userName", name);
+
+                    }
+                    else {
+                        return "User already exists";
+
+                    }
+
+                    return "";
+                })
+        );
+
         Spark.post(
                 "/logout",
                 ((request, response) -> {
