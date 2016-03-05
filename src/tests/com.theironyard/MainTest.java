@@ -68,7 +68,7 @@ public class MainTest {
 //        Main.insertEntry(conn, drew.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!", "https://goo.gl/l2bdpa");
 //        Beer beer = Main.selectEntry(conn, 1);
 //        beer.comment = "I changed my mind, the beer was badddd";
-//        Main.updateEntry(conn, "Sierra Nevada", "Pale Ale", 6, false, "the beer was great!", "https://goo.gl/l2bdpa", 1);
+//        Main.updateEntry(conn, "Sierra Nevada", "Pale Ale", 6, true, "I changed my mind, the beer was badddd", "https://goo.gl/l2bdpa", 1);
 //        Beer beerUpdated = Main.selectEntry(conn, 1);
 //        endConnection(conn);
 //        assertTrue(beerUpdated.comment.equals("I changed my mind, the beer was badddd"));
