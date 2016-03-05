@@ -4,7 +4,8 @@ $(document).ready(function() {
 
 var aleYeah = {
   url: {
-    getBeers:"/get-beers"
+    getBeers:"/get-beers",
+    createBeer: "/create-beer"
   },
 
   init:function () {
@@ -33,7 +34,6 @@ var aleYeah = {
 
       var rating = aleYeah.addBeerInfo();
       console.log(rating);
-
       aleYeah.createBeerReview(rating);
     });
     $('.confirmationScreen').on('click', 'button', function(event){
@@ -73,7 +73,7 @@ var aleYeah = {
   createBeerReview: function(review){
     $.ajax({
       method:'POST',
-      url: aleYeah.url.getBeers,
+      url: aleYeah.url.createBeer,
       data: review,
       success: function(newReview){
         console.log("YOU DID IT", newReview);
@@ -86,21 +86,25 @@ var aleYeah = {
 
   addBeerInfo: function(){
     var beerName = $('input[name="beerName"]').val();
-    var imgUrl = $('input[name="imgUrl"]').val();
+    // var imgUrl = $('input[name="imgUrl"]').val();
     var beerType = $('input[name="beerType"]').val();
     var abv = $('input[name="abv"]').val();
+    var yeah = $('input[name="yeah"]').val();
+    var comment = $('input[name="commentInput"]').val();
     return{
       beerName: beerName,
-      image: imgUrl,
+      // image: imgUrl,
       beerType: beerType,
-      alcoholContent: abv
+      alcoholContent: abv,
+      isGood: yeah,
+      comment: comment
     };
   },
 
   addBeertoDom: function(){
     $('.dashboard').html("");
    var tmpl = _.template(templates.dashboard);
-   lecturers.forEach(function(beer) {
+   aleYeah.forEach(function(beer) {
      $('.dashboard').append(tmpl(beer));
    });
   }
