@@ -31,6 +31,10 @@ var aleYeah = {
       console.log("you clicked submit a new review");
       $('.reviewScreen').removeClass('active');
       $('.confirmationScreen').addClass('active');
+      var rating = aleYeah.getBeerInfo();
+      console.log(rating);
+
+      aleYeah.createBeerReview(rating);
     });
     $('.confirmationScreen').on('click', 'button', function(event){
       event.preventDefault();
@@ -38,13 +42,13 @@ var aleYeah = {
       $('.confirmationScreen').removeClass('active');
       $('.dashboardScreen').addClass('active');
     });
-    $('.reviewScreen').on('click','input[type="submit"]',function(event) {
-     event.preventDefault();
-     var rating = aleYeah.getBeerInfo();
-     console.log(rating);
-
-     aleYeah.createBeerReview(rating);
-   });
+  //   $('.reviewScreen').on('click','input[type="submit"]',function(event) {
+  //    event.preventDefault();
+  //    var rating = aleYeah.getBeerInfo();
+  //    console.log(rating);
+  //
+  //    aleYeah.createBeerReview(rating);
+  //  });
   },
 
   styling: function () {
