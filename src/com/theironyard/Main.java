@@ -21,7 +21,21 @@ public class Main {
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO users VALUES (NULL, ?, ?)");
         stmt.setString(1, name);
         stmt.setString(2, password);
-        stmt.execute();
+        stmt.executeUpdate();
+    }
+
+    public static ArrayList<User> selectUsers(Connection conn) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users");
+        ArrayList<User> users = new ArrayList<>();
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            int id = Integer.valueOf(results.getString("id"));
+            String name = results.getString("name");
+            String password = results.getString("password");
+            User user = new User(id, name, password);
+            users.add(user);
+        }
+        return users;
     }
 
     public static User selectUser(Connection conn, String name) throws SQLException {
@@ -109,6 +123,7 @@ public class Main {
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
         createTables(conn);
 
+        insertUser(conn, "sal", "amander");
         if (selectEntries(conn).size() == 0) {
             insertUser(conn, "Drew", "123");
             insertEntry(conn, 1, "Amstel", "Pilsner", "6", true, "its a great beer"); //, "https://goo.gl/l2bdpa"
@@ -116,6 +131,17 @@ public class Main {
 
         Spark.externalStaticFileLocation("public");
         Spark.init();
+
+        Spark.get(
+                "/users",
+                ((request1, response1) -> {
+                    JsonSerializer s = new JsonSerializer();
+                    return s.serialize(selectUsers(conn));
+
+                })
+
+        );
+
         Spark.get(
                 "/get-beers",
                 ((request, response) -> {
@@ -141,10 +167,10 @@ public class Main {
                         Session session = request.session();
                         session.attribute("userName", name);
 
-//                    }
-//                    else if (user.password.equals(password)) {
-//                        Session session = request.session();
-//                        session.attribute("userName", name);
+                    }
+                    else if (user.password.equals(password)) {
+                        Session session = request.session();
+                        session.attribute("userName", name);
 
                     }
 
