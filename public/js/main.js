@@ -5,7 +5,8 @@ $(document).ready(function() {
 var aleYeah = {
   url: {
     getBeers:"/get-beers",
-    createBeer: "/create-beer"
+    createBeer: "/create-beer",
+    login: "/login"
   },
 
   init:function () {
@@ -19,13 +20,18 @@ var aleYeah = {
       console.log("you clicked login");
       $('.loginScreen').removeClass('active');
       $('.dashboardScreen').addClass('active');
+
+      var createUser = aleYeah.createUser();
+      aleYeah.addUserName(createUser);
     });
+
     $('.dashboardScreen').on('click', 'button', function(event){
       event.preventDefault();
       console.log("you clicked create a new review");
       $('.dashboardScreen').removeClass('active');
       $('.reviewScreen').addClass('active');
     });
+
     $('.reviewScreen').on('click', '.submitReview', function(event){
       event.preventDefault();
       console.log("you clicked submit a new review");
@@ -36,6 +42,7 @@ var aleYeah = {
       console.log(rating);
       aleYeah.createBeerReview(rating);
     });
+
     $('.confirmationScreen').on('click', 'button', function(event){
       event.preventDefault();
       console.log("you clicked back to dashboard");
@@ -55,17 +62,42 @@ var aleYeah = {
 
   },
 
+  createUser: function(){
+    var newUserName = $('input[name="name"]').val();
+    var newUserPass = $('input[name="password"]').val();
+    return{
+      name: newUserName,
+      password: newUserPass
+    };
+  },
+
+  addUserName: function(userNameInput){
+    $.ajax({
+      method:'POST',
+      url: aleYeah.url.login,
+      data: userNameInput,
+      success: function(newUser){
+        console.log("addusername worked", newUser);
+        // newUserName = aleYeah.name;
+        // newUserPass = aleYeah.password;
+      },
+      error: function(err){
+        console.log("adduser did not work", err);
+      }
+    });
+  },
+
   getBeerReview: function () {
     $.ajax({
       method: 'GET',
       url: aleYeah.url.getBeers,
       success: function(beerData) {
         console.log("RECEIVED BEERS", beerData);
-        window.glob = beerData;
+        // window.glob = beerData;
         aleYeah.addBeerToDom(JSON.parse(beerData));
       },
       error: function(err) {
-        console.log('dint work', err);
+        console.log('GET dint work', err);
       }
     });
   },
@@ -79,7 +111,7 @@ var aleYeah = {
         console.log("YOU DID IT", newReview);
       },
       error: function(err){
-        console.log("dint work", err);
+        console.log("POST dint work", err);
       }
     });
   },
