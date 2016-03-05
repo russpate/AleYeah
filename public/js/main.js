@@ -4,8 +4,7 @@ $(document).ready(function() {
 
 var aleYeah = {
   url: {
-    getBeers:"/get-beers",
-    createReview: "/get-beers"
+    getBeers:"/get-beers"
   },
 
   init:function () {
@@ -31,7 +30,8 @@ var aleYeah = {
       console.log("you clicked submit a new review");
       $('.reviewScreen').removeClass('active');
       $('.confirmationScreen').addClass('active');
-      var rating = aleYeah.getBeerInfo();
+
+      var rating = aleYeah.addBeerInfo();
       console.log(rating);
 
       aleYeah.createBeerReview(rating);
@@ -70,10 +70,10 @@ var aleYeah = {
     });
   },
 
-  createBeerReview: function(){
+  createBeerReview: function(review){
     $.ajax({
       method:'POST',
-      url: aleYeah.url.createReview,
+      url: aleYeah.url.getBeers,
       data: review,
       success: function(newReview){
         console.log("YOU DID IT", newReview);
@@ -84,16 +84,16 @@ var aleYeah = {
     });
   },
 
-  getBeerInfo: function(){
+  addBeerInfo: function(){
     var beerName = $('input[name="beerName"]').val();
     var imgUrl = $('input[name="imgUrl"]').val();
     var beerType = $('input[name="beerType"]').val();
     var abv = $('input[name="abv"]').val();
     return{
       beerName: beerName,
-      imgUrl: imgUrl,
+      image: imgUrl,
       beerType: beerType,
-      abv: abv
+      alcoholContent: abv
     };
   },
 
