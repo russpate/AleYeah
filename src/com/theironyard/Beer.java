@@ -11,12 +11,12 @@ public class Beer {
     int alcoholContent;
     boolean is_Good;
     String comment;
-    String image;
+//    String image;
 
     boolean isAuthor;
 
 
-    public Beer(int id,  String author, String beerName, String beerType, int alcoholContent, boolean is_Good, String comment, String image) {
+    public Beer(int id,  String author, String beerName, String beerType, int alcoholContent, boolean is_Good, String comment) { //, String image
         this.id = id;
         this.author = author;
         this.beerName = beerName;
@@ -24,7 +24,7 @@ public class Beer {
         this.alcoholContent = alcoholContent;
         this.is_Good = is_Good;
         this.comment = comment;
-        this.image = image;
+//        this.image = image;
 
     }
 
@@ -92,11 +92,11 @@ public class Beer {
         isAuthor = author;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+//    public String getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(String image) {
+//        this.image = image;
+//    }
 }

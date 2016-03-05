@@ -41,7 +41,7 @@ public class MainTest {
         Connection conn = startConnection();
         Main.insertUser(conn, "Drew", "123");
         User user = Main.selectUser(conn, "Drew");
-        Main.insertEntry(conn, user.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!", "https://goo.gl/l2bdpa");
+        Main.insertEntry(conn, user.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!"); //, "https://goo.gl/l2bdpa"
         Beer beer = Main.selectEntry(conn, 1);
         endConnection(conn);
         assertTrue(beer != null);
@@ -54,8 +54,8 @@ public class MainTest {
         Main.insertUser(conn, "Bob", "");
         User drew = Main.selectUser(conn, "Drew");
         User bob = Main.selectUser(conn, "Bob");
-        Main.insertEntry(conn, drew.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!", "https://goo.gl/l2bdpa");
-        Main.insertEntry(conn, bob.id, "Sierra Nevada", "Porter", 4, false, "the beer was sooo bad!", "https://goo.gl/l2bdpa");
+        Main.insertEntry(conn, drew.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!"); //, "https://goo.gl/l2bdpa"
+        Main.insertEntry(conn, bob.id, "Sierra Nevada", "Porter", 4, false, "the beer was sooo bad!"); //, "https://goo.gl/l2bdpa"
         ArrayList<Beer> beers = Main.selectEntries(conn);
         endConnection(conn);
         assertTrue(beers.size() == 2);
@@ -79,7 +79,7 @@ public class MainTest {
         Connection conn = startConnection();
         Main.insertUser(conn, "Drew", "123");
         User drew = Main.selectUser(conn, "Drew");
-        Main.insertEntry(conn, drew.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!", "https://goo.gl/l2bdpa");
+        Main.insertEntry(conn, drew.id, "Sierra Nevada", "Pale Ale", 6, true, "the beer was great!"); //, "https://goo.gl/l2bdpa"
         Beer beer = Main.selectEntry(conn, 1);
         Main.deleteEntry(conn, drew.id);
         Beer deletedEntry = Main.selectEntry(conn, 1);
