@@ -40,6 +40,9 @@ var aleYeah = {
 
       var createBeerReview = aleYeah.createBeerReview();
       aleYeah.addBeerReview(createBeerReview);
+
+      aleYeah.getBeerReview();
+
     });
 
     $('.confirmationScreen').on('click', 'button', function(event){
@@ -58,7 +61,7 @@ var aleYeah = {
   },
 
   styling: function () {
-
+    aleYeah.getBeerReview();
   },
 
   createUser: function(){
@@ -86,20 +89,6 @@ var aleYeah = {
     });
   },
 
-  getBeerReview: function () {
-    $.ajax({
-      method: 'GET',
-      url: aleYeah.url.getBeers,
-      success: function(beerData) {
-        console.log("RECEIVED BEERS", beerData);
-        // window.glob = beerData;
-        aleYeah.addBeerToDom(JSON.parse(beerData));
-      },
-      error: function(err) {
-        console.log('GET dint work', err);
-      }
-    });
-  },
   createBeerReview: function(){
     var beerName = $('input[name="beerName"]').val();
     // var imgUrl = $('input[name="imgUrl"]').val();
@@ -131,11 +120,26 @@ var aleYeah = {
     });
   },
 
-  addBeertoDom: function(){
-    $('.dashboard').html("");
+  getBeerReview: function () {
+    $.ajax({
+      method: 'GET',
+      url: aleYeah.url.getBeers,
+      success: function(beerData) {
+        console.log("RECEIVED BEERS", beerData);
+        // window.glob = beerData;
+        aleYeah.addBeerToDom(JSON.parse(beerData));
+      },
+      error: function(err) {
+        console.log('GET dint work', err);
+      }
+    });
+  },
+
+  addBeerToDom: function(beerData){
+    $('.dashboardContent').html("");
    var tmpl = _.template(templates.dashboard);
-   aleYeah.forEach(function(beer) {
-     $('.dashboard').append(tmpl(beer));
+  beerData.forEach(function(beer) {
+     $('.dashboardContent').append(tmpl(beer));
    });
   }
 }; // end of aleyeah array
