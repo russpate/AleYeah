@@ -4,14 +4,21 @@
   box-sizing: border-box; }
 
 body {
-  width: 80%;
-  margin-left: 10%; }
+  width: 85%;
+  margin: 0 auto; }
 
 section {
   display: none; }
 
 .active {
   display: inline-block; }
+
+.dashboardScreen {
+  width: 100%;
+  margin: 0 auto; }
+  .dashboardScreen h1 {
+    text-align: center;
+    font-size: 3rem; }
 
 nav {
   background-color: #39D7A3;
@@ -27,10 +34,6 @@ nav {
   height: 50%;
   border-radius: 20px;
   font-size: 1.5rem; }
-
-h1 {
-  text-align: center;
-  font-size: 3rem; }
 
 .beerBox {
   border: grey 2px solid;
@@ -63,9 +66,34 @@ h3 {
 img {
   width: 100%; }
 
-input {
-  display: block;
-  margin-bottom: 3%; }
+.reviewScreen {
+  width: 40%;
+  margin: 0 auto;
+  display: inline-block;
+  margin-left: 30%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  margin-top: 5%;
+  border: 2px lightgrey solid; }
+  .reviewScreen h1 {
+    font-size: 2.5rem;
+    text-align: center; }
+  .reviewScreen .beerName, .reviewScreen .imgUrl, .reviewScreen .beerType, .reviewScreen .abv {
+    text-align: center;
+    width: 100%;
+    font-size: 1.25rem;
+    margin-top: 5%; }
+  .reviewScreen h4 {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-top: 5%;
+    margin-bottom: 5%; }
+  .reviewScreen .submitReview {
+    width: 100%;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    margin-top: 5%; }
 
-.yeahNaw label {
-  display: inline-block; }
+label {
+  padding-left: 15%; }

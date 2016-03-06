@@ -38,9 +38,8 @@ var aleYeah = {
       $('.reviewScreen').removeClass('active');
       $('.confirmationScreen').addClass('active');
 
-      var rating = aleYeah.addBeerInfo();
-      console.log(rating);
-      aleYeah.createBeerReview(rating);
+      var createBeerReview = aleYeah.createBeerReview();
+      aleYeah.addBeerReview(createBeerReview);
     });
 
     $('.confirmationScreen').on('click', 'button', function(event){
@@ -63,11 +62,11 @@ var aleYeah = {
   },
 
   createUser: function(){
-    var newUserName = $('input[name="name"]').val();
-    var newUserPass = $('input[name="password"]').val();
+    var newUserName = $('input[name="user-name"]').val();
+    var newUserPass = $('input[name="user-pass"]').val();
     return{
-      name: newUserName,
-      password: newUserPass
+      loginName: newUserName,
+      userPassword: newUserPass
     };
   },
 
@@ -101,22 +100,7 @@ var aleYeah = {
       }
     });
   },
-
-  createBeerReview: function(review){
-    $.ajax({
-      method:'POST',
-      url: aleYeah.url.createBeer,
-      data: review,
-      success: function(newReview){
-        console.log("YOU DID IT", newReview);
-      },
-      error: function(err){
-        console.log("POST dint work", err);
-      }
-    });
-  },
-
-  addBeerInfo: function(){
+  createBeerReview: function(){
     var beerName = $('input[name="beerName"]').val();
     // var imgUrl = $('input[name="imgUrl"]').val();
     var beerType = $('input[name="beerType"]').val();
@@ -131,6 +115,20 @@ var aleYeah = {
       isGood: yeah,
       comment: comment
     };
+  },
+
+  addBeerReview: function(review){
+    $.ajax({
+      method:'POST',
+      url: aleYeah.url.createBeer,
+      data: review,
+      success: function(newReview){
+        console.log("YOU DID IT", newReview);
+      },
+      error: function(err){
+        console.log("POST dint work", err);
+      }
+    });
   },
 
   addBeertoDom: function(){
