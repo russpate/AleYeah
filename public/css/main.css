@@ -13,6 +13,27 @@ section {
 .active {
   display: inline-block; }
 
+.loginScreen {
+  width: 50%;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 10%;
+  border-top: lightgrey dotted 2px;
+  border-bottom: lightgrey dotted 2px;
+  padding-bottom: 2.5%;
+  padding-top: 2.5%; }
+  .loginScreen input {
+    width: 60%;
+    margin-top: 2.5%;
+    font-size: 1.25rem; }
+  .loginScreen .submitLogin {
+    width: 40%;
+    font-size: 1.25rem;
+    border-radius: 15px;
+    margin-top: 2.5%; }
+
 .dashboardScreen {
   width: 100%;
   margin: 0 auto; }
@@ -91,3 +112,18 @@ img {
 
 label {
   padding-left: 15%; }
+
+.confirmationScreen {
+  width: 50%;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 10%;
+  border-top: lightgrey dotted 2px;
+  border-bottom: lightgrey dotted 2px;
+  padding-bottom: 2.5%; }
+  .confirmationScreen .backToDashboard {
+    width: 80%;
+    font-size: 1.25rem;
+    border-radius: 15px; }

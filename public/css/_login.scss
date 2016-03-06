@@ -1,0 +1,23 @@
+.loginScreen{
+  width:50%;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 10%;
+  border-top: lightgrey dotted 2px;
+  border-bottom: lightgrey dotted 2px;
+  padding-bottom: 2.5%;
+  padding-top: 2.5%;
+  input{
+    width:60%;
+    margin-top: 2.5%;
+    font-size: 1.25rem;
+  }
+  .submitLogin{
+    width: 40%;
+    font-size: 1.25rem;
+    border-radius: 15px;
+    margin-top: 2.5%;
+  }
+}
