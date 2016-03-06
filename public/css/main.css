@@ -7,7 +7,7 @@ body {
   width: 85%;
   margin: 0 auto;
   font-family: 'Pathway Gothic One', sans-serif;
-  background: #F8B945;
+  background: #fff;
   color: #854E19; }
 
 section {
@@ -30,15 +30,15 @@ section {
     font-size: 1.25rem;
     padding: 10px;
     border: none;
-    background: #DC8A14;
+    background: #E8E8E8;
     transition: .2s all; }
     .loginScreenInner input:focus {
       outline: none;
-      border-bottom: 2px solid #854E19;
-      color: #854E19;
+      border-bottom: 2px solid #39356B;
+      color: #39356B;
       background: white; }
-  .loginScreenInner input[type="text"]::-webkit-input-placeholder {
-    color: #B9690B; }
+  .loginScreenInner input[type="text"]::-webkit-input-placeholder, .loginScreenInner input[type="password"]::-webkit-input-placeholder {
+    color: #39356B; }
   .loginScreenInner .submitLogin {
     width: 40%;
     font-size: 1.25rem;
@@ -47,17 +47,21 @@ section {
     padding: 10px;
     border: none;
     color: white;
-    background: #B9690B; }
+    background: #DA9E58; }
   .loginScreenInner h1 {
-    color: #A03401;
+    color: #39356B;
     font-size: 8vw;
     margin: 5px 0;
     font-family: 'Averia Serif Libre', sans-serif;
     text-transform: uppercase;
     transform: rotate(-8deg);
     line-height: 7vw; }
-  .loginScreenInner .statement {
-    font-size: 24px; }
+  .loginScreenInner p {
+    color: #A03401; }
+  .loginScreenInner .login-box {
+    margin-top: 10%;
+    border: 1px solid #e8e8e8;
+    padding: 10% 5% 5% 5%; }
   .loginScreenInner form {
     margin: 10% 0; }
 
@@ -66,30 +70,31 @@ section {
   margin: 0 auto; }
   .dashboardScreen h1 {
     text-align: center;
-    font-size: 3rem; }
+    font-size: 3rem;
+    margin-top: 5%; }
 
 nav {
-  background-color: #39D7A3;
-  height: 4rem;
-  margin-top: 2%;
-  position: relative;
-  margin-bottom: 8%; }
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 7%; }
 
 .addReview {
-  position: absolute;
-  margin-left: 30%;
-  width: 40%;
-  height: 50%;
-  border-radius: 20px;
-  font-size: 1.5rem; }
+  width: 100%;
+  border-radius: 35px;
+  font-size: 1.5rem;
+  background: #A03401;
+  padding: 20px;
+  color: white;
+  border: none; }
 
 .beerBox {
-  border: grey 2px solid;
-  width: 44%;
-  display: inline-block; }
+  width: 49.3%;
+  display: inline-block;
+  background: white;
+  margin-bottom: 15px;
+  border: 1px solid #e8e8e8; }
   .beerBox:nth-child(even) {
-    margin-left: 15px;
-    margin-right: 8%; }
+    margin-left: 15px; }
 
 h3 {
   margin-top: 5%;
