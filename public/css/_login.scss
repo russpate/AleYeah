@@ -10,26 +10,41 @@
     font-size: 1.25rem;
     padding: 10px;
     border: none;
+    background: #DC8A14;
+    transition:.2s all;
+    &:focus {
+    outline: none;
+    border-bottom: 2px solid #854E19;
+    color: #854E19;
+    background: white;
+    }
+  }
+  input[type="text"]::-webkit-input-placeholder{
+  color:#B9690B;
   }
   .submitLogin{
     width: 40%;
     font-size: 1.25rem;
     border-radius: 35px;
-    margin-top: 5%;
+    margin-top: 10%;
     padding: 10px;
     border: none;
     color: white;
     background: #B9690B;
   }
   h1{
-    color:#854E19;
-    font-size: 72px;
+    color:#A03401;
+    font-size: 8vw;
     margin: 5px 0;
+    font-family: 'Averia Serif Libre', sans-serif;
+    text-transform:uppercase;
+    transform: rotate(-8deg);
+    line-height:7vw;
   }
   .statement{
     font-size:24px;
   }
   form {
     margin: 10% 0;
-}
+  }
 }
