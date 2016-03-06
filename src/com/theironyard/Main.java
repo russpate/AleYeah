@@ -24,19 +24,7 @@ public class Main {
         stmt.executeUpdate();
     }
 
-    public static ArrayList<User> selectUsers(Connection conn) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users");
-        ArrayList<User> users = new ArrayList<>();
-        ResultSet results = stmt.executeQuery();
-        while (results.next()) {
-            int id = Integer.valueOf(results.getString("id"));
-            String name = results.getString("name");
-            String password = results.getString("password");
-            User user = new User(id, name, password);
-            users.add(user);
-        }
-        return users;
-    }
+
 
     public static User selectUser(Connection conn, String name) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
@@ -98,6 +86,20 @@ public class Main {
             beers.add(beer);
         }
         return beers;
+    }
+
+    public static ArrayList<User> selectUsers(Connection conn) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users");
+        ArrayList<User> users = new ArrayList<>();
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            int id = Integer.valueOf(results.getString("id"));
+            String name = results.getString("name");
+            String password = results.getString("password");
+            User user = new User(id, name, password);
+            users.add(user);
+        }
+        return users;
     }
 
     public static void deleteEntry(Connection conn, int id) throws SQLException {
@@ -216,11 +218,11 @@ public class Main {
 
 
                     User user = selectUser(conn, userName);
-                    String beerName = request.queryParams("beers.beer_name");
-                    String beerType = request.queryParams("beers.beer_type");
-                    String alcoholContent = request.queryParams("beers.alcohol_content");
-                    boolean isGood = Boolean.valueOf(request.queryParams("beers.is_good"));
-                    String comment = request.queryParams("beers.comment");
+                    String beerName = request.queryParams("beerName");
+                    String beerType = request.queryParams("beerType");
+                    String alcoholContent = request.queryParams("alcoholContent");
+                    boolean isGood = Boolean.valueOf(request.queryParams("isGood"));
+                    String comment = request.queryParams("comment");
 //                    String image = request.queryParams("beers.image");
 
                     insertEntry(conn, user.id, beerName, beerType, alcoholContent, isGood, comment); //, image
