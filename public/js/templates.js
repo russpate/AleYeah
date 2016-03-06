@@ -2,6 +2,7 @@ var templates = {};
 
 templates.dashboard = [
   '<div class="beerBox">',
+    '<button type="button" name="Delete" class="delete-review">Delete</button>',
     '<h3>',
     '<%= beerName %>',
     '</h3>',
@@ -13,7 +14,7 @@ templates.dashboard = [
     '<%= alcoholContent %>',
     '</h6>',
     '<span>',
-    '<%= _Good %>',
+    '<%= good %>',
     '</span>',
     '</div>',
     '</div>'
