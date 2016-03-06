@@ -25,6 +25,12 @@ var aleYeah = {
       aleYeah.addUserName(createUser);
     });
 
+    $('section').on('click', '.delete', function (event) {
+     var idx = $(this).closest('div').data('idx');
+     aleYeah.deleteReview(idx);
+     aleYeah.addBeerReview();
+   });
+
     $('.dashboardScreen').on('click', 'button', function(event){
       event.preventDefault();
       console.log("you clicked create a new review");
