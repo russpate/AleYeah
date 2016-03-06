@@ -14,7 +14,7 @@ templates.dashboard = [
     '<%= alcoholContent %>',
     '</h6>',
     '<span>',
-    '<%= _Good %>',
+    '<%= good %>',
     '</span>',
     '</div>',
     '</div>'
