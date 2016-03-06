@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <section class="loginScreen">
+    <section class="loginScreen active">
 
       <form><input class="input" type='text' name="user-name" placeholder="login">
       <input class="input" type='text' name="user-pass" placeholder="password">
@@ -29,13 +29,12 @@
     <section class="reviewScreen">
       <h1>Beer Review</h1>
 
-      <form><input class="beerName" type='text' name="beerName" placeholder="name of beer">
-
-      <input class="imgUrl" type='text' name="imgUrl" placeholder="image url of beer">
-
-      <input class="beerType" type='text' name="beerType" placeholder="type of beer">
-
-      <input class="abv" type='text' name="abv" placeholder="ABV of beer">
+      <form>
+        <input class="beerName" type='text' name="beerName" placeholder="name of beer">
+        <input class="imgUrl" type='text' name="imgUrl" placeholder="image url of beer">
+        <input class="beerType" type='text' name="beerType" placeholder="type of beer">
+        <input class="abv" type='text' name="abv" placeholder="ABV of beer">
+        <input type="text" name="commentInput" value="">
 
       <div class"yeahNaw">
         <h4>Would you drink it again?</h4>
@@ -50,7 +49,7 @@
       <button class="submitReview">submit review</button></form>
     </section>
 
-    <section class= "confirmationScreen active">
+    <section class= "confirmationScreen">
       <h1>Your review has been submitted!</hi>
       <button class="backToDashboard">back to dashboard</button>
     </section>
