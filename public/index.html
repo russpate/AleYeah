@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <section class="loginScreen active">
+    <section class="loginScreen">
 
       <form><input class="input" type='text' name="user-name" placeholder="login">
       <input class="input" type='text' name="user-pass" placeholder="password">
@@ -39,21 +39,18 @@
 
       <div class"yeahNaw">
         <h4>Would you drink it again?</h4>
-        <label>
+        <label class= "checkbox" >
           <input type="checkbox" class="radio" value="1" name="yeah" />Ale Yeah!
         </label>
-        <label>
+        <label class= "checkbox" >
           <input type="checkbox" class="radio" value="1" name="naw" />Ale Naw!
         </label>
-      </div>
-      <div class="commentBox">
-        <input type="text" name="commentInput">
       </div>
 
       <button class="submitReview">submit review</button></form>
     </section>
 
-    <section class= "confirmationScreen">
+    <section class= "confirmationScreen active">
       <h1>Your review has been submitted!</hi>
       <button class="backToDashboard">back to dashboard</button>
     </section>
