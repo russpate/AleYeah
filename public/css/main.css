@@ -8,26 +8,26 @@ body {
   margin: 0 auto; }
 
 section {
-  display: none; }
+  display: none;
+  width: 100%;
+  margin-top: 10%; }
 
 .active {
   display: inline-block; }
 
-.loginScreen {
+.loginScreenInner {
   width: 50%;
   margin: 0 auto;
   text-align: center;
-  margin-left: 25%;
-  margin-top: 10%;
   border-top: lightgrey dotted 2px;
   border-bottom: lightgrey dotted 2px;
   padding-bottom: 2.5%;
   padding-top: 2.5%; }
-  .loginScreen input {
+  .loginScreenInner input {
     width: 60%;
     margin-top: 2.5%;
     font-size: 1.25rem; }
-  .loginScreen .submitLogin {
+  .loginScreenInner .submitLogin {
     width: 40%;
     font-size: 1.25rem;
     border-radius: 15px;
@@ -86,7 +86,7 @@ h3 {
 img {
   width: 100%; }
 
-.reviewScreen {
+.reviewScreenInner {
   width: 40%;
   margin: 0 auto;
   margin-left: 30%;
@@ -95,20 +95,20 @@ img {
   padding-bottom: 5%;
   margin-top: 5%;
   border: 2px lightgrey solid; }
-  .reviewScreen h1 {
+  .reviewScreenInner h1 {
     font-size: 2.5rem;
     text-align: center; }
-  .reviewScreen .beerName, .reviewScreen .imgUrl, .reviewScreen .beerType, .reviewScreen .abv {
+  .reviewScreenInner .beerName, .reviewScreenInner .imgUrl, .reviewScreenInner .beerType, .reviewScreenInner .abv {
     text-align: center;
     width: 100%;
     font-size: 1.25rem;
     margin-top: 5%; }
-  .reviewScreen h4 {
+  .reviewScreenInner h4 {
     text-align: center;
     font-size: 1.25rem;
     margin-top: 5%;
     margin-bottom: 5%; }
-  .reviewScreen .submitReview {
+  .reviewScreenInner .submitReview {
     width: 100%;
     font-size: 1.5rem;
     border-radius: 15px;
@@ -117,7 +117,7 @@ img {
 label {
   padding-left: 15%; }
 
-.confirmationScreen {
+.confirmationScreenInner {
   width: 50%;
   margin: 0 auto;
   text-align: center;
@@ -126,7 +126,7 @@ label {
   border-top: lightgrey dotted 2px;
   border-bottom: lightgrey dotted 2px;
   padding-bottom: 2.5%; }
-  .confirmationScreen .backToDashboard {
+  .confirmationScreenInner .backToDashboard {
     width: 80%;
     font-size: 1.25rem;
     border-radius: 15px; }

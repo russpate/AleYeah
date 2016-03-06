@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+  <div class="container">
 
-    <section class="loginScreen">
 
-      <h1>Welcome to Ale Yeah!</h1>
+    <section class="loginScreen active">
+      <div class="loginScreenInner">
+        <h1>Welcome to Ale Yeah!</h1>
+        <form><input class="input" type='text' name="user-name" placeholder="login">
+          <input class="input" type='text' name="user-pass" placeholder="password">
+          <button class="submitLogin">submit</button>
+        </form>
+      </div>
 
-      <form><input class="input" type='text' name="user-name" placeholder="login">
-        <input class="input" type='text' name="user-pass" placeholder="password">
-        <button class="submitLogin">submit</button>
-      </form>
     </section>
 
     <section class="dashboardScreen">
@@ -24,40 +27,44 @@
         <h1>welcome to your dashboard</h1>
         <button class="addReview">add a new review</button>
       </nav>
-
-
-</section>
-
-
-    <section class="reviewScreen active">
-      <h1>Beer Review</h1>
-
-      <form>
-        <input class="beerName" type='text' name="beerName" placeholder="name of beer">
-        <input class="imgUrl" type='text' name="imgUrl" placeholder="image url of beer">
-        <input class="beerType" type='text' name="beerType" placeholder="type of beer">
-        <input class="abv" type='text' name="abv" placeholder="ABV of beer">
-
-
-      <div class"yeahNaw">
-        <h4>Would you drink it again?</h4>
-        <label class= "checkbox" >
-          <input type="checkbox" class="radio" value="1" name="yeah" />Ale Yeah!
-        </label>
-        <label class= "checkbox" >
-          <input type="checkbox" class="radio" value="1" name="naw" />Ale Naw!
-        </label>
+      <div class="dashboardContent">
       </div>
+    </section>
 
-      <button class="submitReview">submit review</button></form>
+
+    <section class="reviewScreen">
+      <div class="revewScreenInner">
+        <h1>Beer Review</h1>
+
+        <form>
+          <input class="beerName" type='text' name="beerName" placeholder="name of beer">
+          <input class="imgUrl" type='text' name="imgUrl" placeholder="image url of beer">
+          <input class="beerType" type='text' name="beerType" placeholder="type of beer">
+          <input class="abv" type='text' name="abv" placeholder="ABV of beer">
+          <input type="text" name="commentInput" value="">
+
+
+        <div class"yeahNaw">
+          <h4>Would you drink it again?</h4>
+          <label class= "checkbox" >
+            <input type="checkbox" class="radio" value="1" name="yeah" />Ale Yeah!
+          </label>
+          <label class= "checkbox" >
+            <input type="checkbox" class="radio" value="1" name="naw" />Ale Naw!
+          </label>
+        </div>
+
+        <button class="submitReview">submit review</button></form>
+      </div>
     </section>
 
     <section class= "confirmationScreen">
-
-      <h1>Your review has been submitted!</hi>
-      <button class="backToDashboard">back to dashboard</button>
+      <div class="confirmationScreenInner">
+        <h1>Your review has been submitted!</hi>
+        <button class="backToDashboard">back to dashboard</button>
+      </div>
     </section>
-
+    </div>
     <script charset="utf-8" src="bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
