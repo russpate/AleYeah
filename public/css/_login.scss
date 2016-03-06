@@ -2,19 +2,34 @@
   width:50%;
   margin: 0 auto;
   text-align: center;
-  border-top: lightgrey dotted 2px;
-  border-bottom: lightgrey dotted 2px;
   padding-bottom: 2.5%;
   padding-top: 2.5%;
   input{
-    width:60%;
-    margin-top: 2.5%;
+    width: 75%;
+    margin: 1% 0;
     font-size: 1.25rem;
+    padding: 10px;
+    border: none;
   }
   .submitLogin{
     width: 40%;
     font-size: 1.25rem;
-    border-radius: 15px;
-    margin-top: 2.5%;
+    border-radius: 35px;
+    margin-top: 5%;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #B9690B;
   }
+  h1{
+    color:#854E19;
+    font-size: 72px;
+    margin: 5px 0;
+  }
+  .statement{
+    font-size:24px;
+  }
+  form {
+    margin: 10% 0;
+}
 }
