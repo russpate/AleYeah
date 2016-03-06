@@ -2,7 +2,7 @@ var templates = {};
 
 templates.dashboard = [
   '<div class="beerBox">',
-    '<button type="button" name="Delete" class="delete-review">Delete</button>',
+    '<button type="button" name="Delete" class="delete">Delete</button>',
     '<h3>',
     '<%= beerName %>',
     '</h3>',
