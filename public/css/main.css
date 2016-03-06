@@ -16,7 +16,6 @@ section {
 .loginScreen {
   width: 50%;
   margin: 0 auto;
-  display: inline-block;
   text-align: center;
   margin-left: 25%;
   margin-top: 10%;
@@ -90,7 +89,6 @@ img {
 .reviewScreen {
   width: 40%;
   margin: 0 auto;
-  display: inline-block;
   margin-left: 30%;
   padding-left: 5%;
   padding-right: 5%;
@@ -122,7 +120,6 @@ label {
 .confirmationScreen {
   width: 50%;
   margin: 0 auto;
-  display: inline-block;
   text-align: center;
   margin-left: 25%;
   margin-top: 10%;
