@@ -90,12 +90,6 @@ img {
 .reviewScreen {
   width: 40%;
   margin: 0 auto;
-  display: inline-block;
-  margin-left: 30%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-  margin-top: 5%;
   border: 2px lightgrey solid; }
   .reviewScreen h1 {
     font-size: 2.5rem;
