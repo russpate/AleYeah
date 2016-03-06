@@ -9,20 +9,19 @@ public class Beer {
     String beerName;
     String beerType;
     String alcoholContent;
-    boolean is_Good;
+    boolean isGood;
     String comment;
 //    String image;
 
-    boolean isAuthor;
 
 
-    public Beer(int id,  String author, String beerName, String beerType, String alcoholContent, boolean is_Good, String comment) { //, String image
+    public Beer(int id, String author, String beerName, String beerType, String alcoholContent, boolean isGood, String comment) { //, String image
         this.id = id;
         this.author = author;
         this.beerName = beerName;
         this.beerType = beerType;
         this.alcoholContent = alcoholContent;
-        this.is_Good = is_Good;
+        this.isGood = isGood;
         this.comment = comment;
 //        this.image = image;
 
@@ -68,12 +67,12 @@ public class Beer {
         this.alcoholContent = alcoholContent;
     }
 
-    public boolean is_Good() {
-        return is_Good;
+    public boolean isGood() {
+        return isGood;
     }
 
-    public void setIs_Good(boolean is_Good) {
-        this.is_Good = is_Good;
+    public void setIsGood(boolean isGood) {
+        this.isGood = isGood;
     }
 
     public String getComment() {
@@ -84,13 +83,6 @@ public class Beer {
         this.comment = comment;
     }
 
-    public boolean isAuthor() {
-        return isAuthor;
-    }
-
-    public void setAuthor(boolean author) {
-        isAuthor = author;
-    }
 
 //    public String getImage() {
 //        return image;
