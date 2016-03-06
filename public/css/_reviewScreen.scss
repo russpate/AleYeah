@@ -1,8 +1,37 @@
-input{
-  display:block;
-  margin-bottom: 3%;
+.reviewScreen{
+  width:40%;
+  margin: 0 auto;
+  display: inline-block;
+  margin-left: 30%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  margin-top: 5%;
+  border: 2px lightgrey solid;
+  h1{
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .beerName , .imgUrl , .beerType , .abv{
+    text-align: center;
+    width:100%;
+    font-size: 1.25rem;
+    margin-top: 5%;
+  }
+  h4{
+    text-align: center;
+    font-size: 1.25rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .submitReview{
+    width:100%;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    margin-top: 5%;
+  }
 }
 
-.yeahNaw label{
-  display: inline-block;
+label{
+  padding-left: 15%;
 }
