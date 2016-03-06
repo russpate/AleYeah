@@ -10,17 +10,17 @@
     font-size: 1.25rem;
     padding: 10px;
     border: none;
-    background: #DC8A14;
+    background: #E8E8E8;
     transition:.2s all;
     &:focus {
     outline: none;
-    border-bottom: 2px solid #854E19;
-    color: #854E19;
+    border-bottom: 2px solid #39356B;
+    color: #39356B;
     background: white;
     }
   }
-  input[type="text"]::-webkit-input-placeholder{
-  color:#B9690B;
+  input[type="text"]::-webkit-input-placeholder,input[type="password"]::-webkit-input-placeholder{
+  color:#39356B;
   }
   .submitLogin{
     width: 40%;
@@ -30,10 +30,10 @@
     padding: 10px;
     border: none;
     color: white;
-    background: #B9690B;
+    background: #DA9E58;
   }
   h1{
-    color:#A03401;
+    color:#39356B;
     font-size: 8vw;
     margin: 5px 0;
     font-family: 'Averia Serif Libre', sans-serif;
@@ -41,8 +41,13 @@
     transform: rotate(-8deg);
     line-height:7vw;
   }
-  .statement{
-    font-size:24px;
+  p{
+    color:#A03401;
+  }
+  .login-box {
+    margin-top: 10%;
+    border: 1px solid #e8e8e8;
+    padding: 10% 5% 5% 5%;
   }
   form {
     margin: 10% 0;

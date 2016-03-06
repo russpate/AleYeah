@@ -4,35 +4,33 @@
   h1{
     text-align: center;
     font-size: 3rem;
+    margin-top:5%;
   }
 }
 
 nav{
-  background-color: #39D7A3;
-  height:4rem;
-  margin-top: 2%;
-  position:relative;
-  margin-bottom: 8%
+  width:30%;
+  margin:0 auto;
+  margin-bottom:7%;
 }
 
 .addReview{
-  position:absolute;
-  margin-left: 30%;
-  width:40%;
-  height:50%;
-  border-radius: 20px;
+  width:100%;
+  border-radius: 35px;
   font-size: 1.5rem;
+  background:#A03401;
+  padding:20px;
+  color:white;
+  border:none;
 }
-
-
-
 .beerBox{
-  border:grey 2px solid;
-  width: 44%;
+  width: 49.3%;
   display:inline-block;
+  background:white;
+  margin-bottom: 15px;
+  border: 1px solid #e8e8e8;
   &:nth-child(even) {
     margin-left: 15px;
-    margin-right: 8%;
   }
 }
 

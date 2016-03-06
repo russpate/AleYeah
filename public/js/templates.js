@@ -1,8 +1,10 @@
 var templates = {};
 
 templates.dashboard = [
-  '<div class="beerBox">',
-    '<button type="button" name="Delete" class="delete">Delete</button>',
+  '<div class="beerBox" data-id="',
+    '<%= id %>',
+    '">',
+    '<button type="button" name="Delete" class="delete"><i class="fa fa-trash"></i></button>',
     '<h3>',
     '<%= beerName %>',
     '</h3>',

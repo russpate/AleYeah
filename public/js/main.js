@@ -6,7 +6,8 @@ var aleYeah = {
   url: {
     getBeers:"/get-beers",
     createBeer: "/create-beer",
-    login: "/login"
+    login: "/login",
+    delete: "/delete-beer"
   },
 
   init:function () {
@@ -26,9 +27,9 @@ var aleYeah = {
     });
 
     $('.dashboardContent').on('click', 'button.delete', function (event) {
-     var idx = $(this).closest('div').data('id');
-     console.log("deleted")
-     aleYeah.deleteReview(idx);
+     var id = $(this).closest('div').data('id');
+     console.log("deleted");
+     aleYeah.deleteReview(id);
      aleYeah.getBeerReview();
    });
 
@@ -144,9 +145,9 @@ var aleYeah = {
 
   deleteReview: function(id) {
     $.ajax({
-      method: 'DELETE',
-      url: aleYeah.url.getBeers,
-      data: id,
+      method: 'POST',
+      url: aleYeah.url.delete,
+      data: {deleteId: id},
       success: function(response) {
         console.log("deleted review", response);
         // aleYeah.getBeerReview();
