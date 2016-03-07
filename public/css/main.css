@@ -134,8 +134,13 @@ h6 {
   margin: 5% 0; }
 
 .reviewScreenInner {
-  width: 40%;
+  width: 60%;
   margin: 0 auto;
+  display: inline-block;
+  margin-left: 20%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
   border: 2px lightgrey solid; }
   .reviewScreenInner h1 {
     font-size: 2.5rem;
@@ -151,13 +156,14 @@ h6 {
     margin-top: 5%;
     margin-bottom: 5%; }
   .reviewScreenInner .submitReview {
-    width: 100%;
+    width: 80%;
     font-size: 1.5rem;
     border-radius: 15px;
-    margin-top: 5%; }
+    margin-top: 5%;
+    margin-left: 10%; }
 
-label {
-  padding-left: 15%; }
+.checkbox {
+  padding-left: 20%; }
 
 .reviewScreen form input {
   display: inline-block;
@@ -171,7 +177,6 @@ label {
 .confirmationScreenInner {
   width: 50%;
   margin: 0 auto;
-  display: inline-block;
   text-align: center;
   margin-left: 25%;
   margin-top: 10%;
@@ -179,6 +184,6 @@ label {
   border-bottom: lightgrey dotted 2px;
   padding-bottom: 2.5%; }
   .confirmationScreenInner .backToDashboard {
-    width: 80%;
+    width: 60%;
     font-size: 1.25rem;
     border-radius: 15px; }
