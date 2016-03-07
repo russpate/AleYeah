@@ -6,7 +6,8 @@ var aleYeah = {
   url: {
     getBeers:"/get-beers",
     createBeer: "/create-beer",
-    login: "/login"
+    login: "/login",
+    delete: "/delete-beer"
   },
 
   init:function () {
@@ -25,7 +26,14 @@ var aleYeah = {
       aleYeah.addUserName(createUser);
     });
 
-    $('.dashboardScreen').on('click', 'button', function(event){
+    $('.dashboardContent').on('click', 'button.delete', function (event) {
+     var id = $(this).closest('div').data('id');
+     console.log("deleted");
+     aleYeah.deleteReview(id);
+     aleYeah.getBeerReview();
+   });
+
+    $('.dashboardScreen').on('click', '.addReview', function(event){
       event.preventDefault();
       console.log("you clicked create a new review");
       $('.dashboardScreen').removeClass('active');
@@ -131,6 +139,21 @@ var aleYeah = {
       },
       error: function(err) {
         console.log('GET dint work', err);
+      }
+    });
+  },
+
+  deleteReview: function(id) {
+    $.ajax({
+      method: 'POST',
+      url: aleYeah.url.delete,
+      data: {deleteId: id},
+      success: function(response) {
+        console.log("deleted review", response);
+        // aleYeah.getBeerReview();
+      },
+      error: function(err) {
+        console.log('not working', err);
       }
     });
   },

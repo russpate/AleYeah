@@ -5,7 +5,10 @@
 
 body {
   width: 85%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: 'Pathway Gothic One', sans-serif;
+  background: #fff;
+  color: #854E19; }
 
 section {
   display: none;
@@ -19,64 +22,89 @@ section {
   width: 50%;
   margin: 0 auto;
   text-align: center;
-  border-top: lightgrey dotted 2px;
-  border-bottom: lightgrey dotted 2px;
   padding-bottom: 2.5%;
   padding-top: 2.5%; }
   .loginScreenInner input {
-    width: 60%;
-    margin-top: 2.5%;
-    font-size: 1.25rem; }
+    width: 75%;
+    margin: 1% 0;
+    font-size: 1.25rem;
+    padding: 10px;
+    border: none;
+    background: #E8E8E8;
+    transition: .2s all; }
+    .loginScreenInner input:focus {
+      outline: none;
+      border-bottom: 2px solid #C5A47D;
+      color: #39356B;
+      background: white; }
+  .loginScreenInner input[type="text"]::-webkit-input-placeholder, .loginScreenInner input[type="password"]::-webkit-input-placeholder {
+    color: #39356B; }
   .loginScreenInner .submitLogin {
     width: 40%;
     font-size: 1.25rem;
-    border-radius: 15px;
-    margin-top: 2.5%; }
+    border-radius: 35px;
+    margin-top: 10%;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #C5A47D; }
+  .loginScreenInner h1 {
+    color: #39356B;
+    font-size: 8vw;
+    margin: 5px 0;
+    font-family: 'Averia Serif Libre', sans-serif;
+    text-transform: uppercase;
+    transform: rotate(-8deg);
+    line-height: 7vw; }
+  .loginScreenInner h2 {
+    color: #C5A47D; }
+  .loginScreenInner .login-box {
+    margin-top: 10%;
+    border: 1px solid #e8e8e8;
+    padding: 10% 5% 5% 5%; }
+  .loginScreenInner form {
+    margin: 10% 0; }
 
 .dashboardScreen {
   width: 100%;
   margin: 0 auto; }
   .dashboardScreen h1 {
     text-align: center;
-    font-size: 3rem; }
+    font-size: 3rem;
+    margin-top: 5%;
+    color: #39356B;
+    font-family: 'Averia Serif Libre', sans-serif; }
 
 nav {
-  background-color: #39D7A3;
-  height: 4rem;
-  margin-top: 2%;
-  position: relative;
-  margin-bottom: 8%; }
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 7%; }
 
 .addReview {
-  position: absolute;
-  margin-left: 30%;
-  width: 40%;
-  height: 50%;
-  border-radius: 20px;
-  font-size: 1.5rem; }
+  width: 100%;
+  border-radius: 35px;
+  font-size: 1.5rem;
+  background: #C5A47D;
+  padding: 10px;
+  color: white;
+  border: none; }
 
 .beerBox {
-  border: grey 2px solid;
-  width: 44%;
-  display: inline-block; }
-  .beerBox:nth-child(even) {
-    margin-left: 15px;
-    margin-right: 8%; }
+  width: 32.7%;
+  display: inline-block;
+  background: white;
+  position: relative;
+  padding: 10px; }
+
+.beerBoxInner {
+  border: 1px solid #e8e8e8;
+  position: relative; }
 
 h3 {
   margin-top: 5%;
   text-align: center;
-  font-size: 1.75rem; }
-
-.beerWords h6 {
-  display: inline-block;
-  text-align: center;
-  margin-left: 10%;
-  font-size: 1.25rem;
-  margin-bottom: 5%; }
-
-.beerWords h6:first-child {
-  margin-left: 23%; }
+  font-size: 1.75rem;
+  color: #39356B; }
 
 .imgBox {
   width: 100%;
@@ -85,6 +113,25 @@ h3 {
 
 img {
   width: 100%; }
+
+button.delete {
+  -webkit-appearance: none;
+  background: lightgray;
+  border: none;
+  padding: 10px;
+  text-align: right;
+  color: #A5A5A5;
+  position: absolute;
+  right: 0; }
+
+h6 {
+  display: inline;
+  margin-right: 10px;
+  font-size: 16px; }
+
+.beerWords {
+  text-align: center;
+  margin: 5% 0; }
 
 .reviewScreenInner {
   width: 40%;
@@ -116,6 +163,15 @@ img {
 
 label {
   padding-left: 15%; }
+
+.reviewScreen form input {
+  display: inline-block;
+  width: 48%;
+  margin-bottom: 10px;
+  padding: 10px; }
+
+.reviewScreen form input:nth-child(odd) {
+  margin-right: 10px; }
 
 .confirmationScreenInner {
   width: 50%;
