@@ -27,7 +27,7 @@ var aleYeah = {
     });
 
     $('.dashboardContent').on('click', 'button.delete', function (event) {
-     var id = $(this).closest('div').data('id');
+     var id = $('.beerBox').data('id');
      console.log("deleted");
      aleYeah.deleteReview(id);
      aleYeah.getBeerReview();
@@ -51,6 +51,13 @@ var aleYeah = {
 
       aleYeah.getBeerReview();
 
+    });
+    $("#aleYeahCheck").on('change', function(event) {
+      console.log("you checked it");
+      if( $(this).is(':checked') ) {
+        console.log("this is ", this.checked);
+        return(true);
+    }
     });
 
     $('.confirmationScreen').on('click', 'button', function(event){
@@ -109,7 +116,7 @@ var aleYeah = {
       // image: imgUrl,
       beerType: beerType,
       alcoholContent: abv,
-      isGood: yeah,
+      good: yeah,
       comment: comment
     };
   },
