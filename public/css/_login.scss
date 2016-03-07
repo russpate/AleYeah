@@ -14,7 +14,7 @@
     transition:.2s all;
     &:focus {
     outline: none;
-    border-bottom: 2px solid #39356B;
+    border-bottom: 2px solid #C5A47D;
     color: #39356B;
     background: white;
     }
@@ -30,7 +30,7 @@
     padding: 10px;
     border: none;
     color: white;
-    background: #DA9E58;
+    background: #C5A47D;
   }
   h1{
     color:#39356B;
@@ -41,8 +41,8 @@
     transform: rotate(-8deg);
     line-height:7vw;
   }
-  p{
-    color:#A03401;
+  h2{
+    color:#C5A47D;
   }
   .login-box {
     margin-top: 10%;

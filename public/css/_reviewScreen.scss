@@ -34,3 +34,13 @@
 label{
   padding-left: 15%;
 }
+.reviewScreen form input {
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.reviewScreen form input:nth-child(odd) {
+    margin-right: 10px;
+}
